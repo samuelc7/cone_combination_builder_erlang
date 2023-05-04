@@ -9,17 +9,15 @@ cone_combinations(Top_flavors,Bottom_flavors) ->
 
 get_combinations([H|T], Second, L) ->
 	get_combinations(T, Second, L ++ lists:map(fun(X) -> {H, X} end, Second));
-
 get_combinations([], Second, L) -> L.
 	
 cone_combinations(nil) -> fail;
 cone_combinations(Flavor_list)->
 	[{X, Y} || X <- Flavor_list, Y <- Flavor_list].	
 
+most_popular_combinations(Count, List) when Count > length(List); Count < 0 -> fail;
 most_popular_combinations(Count,List)->
-	0.
-
-
+	lists:sublist(lists:sort(List), Count).
 
 -ifdef(EUNIT).
 %%
