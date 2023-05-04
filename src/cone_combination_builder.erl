@@ -2,16 +2,23 @@
 -export([cone_combinations/2,cone_combinations/1,most_popular_combinations/2]).
 
 
+cone_combinations(nil, nil) -> fail;
+cone_combinations(nil, Bottom_flavors) -> fail;
 cone_combinations(Top_flavors,Bottom_flavors) ->
-	to_do.
+	get_combinations(Top_flavors, Bottom_flavors, []).
 
+get_combinations([H|T], Second, L) ->
+	get_combinations(T, Second, L ++ lists:map(fun(X) -> {H, X} end, Second));
+
+get_combinations([], Second, L) -> L.
+	
 
 cone_combinations(Flavor_list)->
-	to_do.
+	0.
 
 
 most_popular_combinations(Count,List)->
-	to_do.
+	0.
 
 
 
