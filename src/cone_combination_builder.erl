@@ -12,10 +12,9 @@ get_combinations([H|T], Second, L) ->
 
 get_combinations([], Second, L) -> L.
 	
-
+cone_combinations(nil) -> fail;
 cone_combinations(Flavor_list)->
-	0.
-
+	[{X, Y} || X <- Flavor_list, Y <- Flavor_list].	
 
 most_popular_combinations(Count,List)->
 	0.
